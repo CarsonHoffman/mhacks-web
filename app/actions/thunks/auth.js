@@ -104,4 +104,42 @@ export default class AuthThunks {
             });
         };
     }
+
+    static reset(user) {
+        return dispatch => {
+            dispatch({
+                type: actions.RESET_REQUEST,
+                data: user
+            });
+    
+            return AuthRequests.reset({
+                email: user.email,
+            }).then(response => {
+                console.log(response);
+                if (response.status == 200) {
+                    response.json().then(json => {
+    
+                        dispatch({
+                            type: actions.RESET_SUCCESS,
+                            data: {
+                                email: user.email,
+                            },
+                            message: json.message
+                        });
+                    });
+                } else {
+                    response.json().then(json => {
+                        dispatch({
+                            type: actions.RESET_ERROR,
+                            data: user.email,
+                            error: response.status,
+                            message: json.message
+                        });
+                    });
+                }
+            });
+        };
+    }
+    
 }
+

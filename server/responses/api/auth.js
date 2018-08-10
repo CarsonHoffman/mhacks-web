@@ -6,7 +6,7 @@ module.exports = {
     USER_NOT_FOUND: 'Unauthorized, email and password combination is invalid.',
     UNKNOWN_ERROR:
         'There was an error with the request, please try again later',
-    PARAMS_NOT_FOUND: 'Unauthorized, email and password fields not set.',
+    PARAMS_NOT_FOUND: 'Unauthorized, required fields are not set.',
     USER_EXISTS: 'You are not allowed to register with that email.',
     UNAUTHORIZED: 'Unauthorized'
 };

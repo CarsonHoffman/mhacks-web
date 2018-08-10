@@ -104,7 +104,7 @@ class Login extends React.Component {
     if (this.state.isRegistering) {
       this.props.dispatch(AuthThunks.register({name: this.state.name, email: this.state.email, password: this.state.password}));
     } else if (this.state.isResetting) {
-      this.props.dispatch(AuthThunks.register({password: this.state.password}));
+      this.props.dispatch(AuthThunks.reset({email: this.state.email}));
     } else {
       this.props.dispatch(AuthThunks.login({email: this.state.email, password: this.state.password}));
     }
