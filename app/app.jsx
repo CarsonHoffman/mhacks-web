@@ -24,6 +24,7 @@ import {
     Confirm,
     MentorApply,
     SpeakerApply,
+    SpeakerPortal,
     Dashboard,
     AdminPage,
     TeamBuilding
@@ -150,6 +151,17 @@ class AppProvider extends React.Component {
                                 render={() => {
                                     if (this.getMetadata().isLoggedIn) {
                                         return <SpeakerApply />;
+                                    }
+
+                                    return <Redirect to={routes.LOGIN} />;
+                                }}
+                            />
+                            <Route
+                                exact
+                                path={routes.SPEAKER_PORTAL}
+                                render={() => {
+                                    if (this.getMetadata().isLoggedIn) {
+                                        return <SpeakerPortal />;
                                     }
 
                                     return <Redirect to={routes.LOGIN} />;

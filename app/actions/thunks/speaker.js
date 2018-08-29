@@ -92,4 +92,33 @@ export default class SpeakerThunks {
             });
         };
     }
+
+    static loadPortalForm() {
+        return dispatch => {
+            dispatch({
+                type: actions.LOAD_SPEAKER_PORTAL_FORM_REQUEST
+            });
+
+            return SpeakerRequests.loadForm().then(response => {
+                if (response.status === 200) {
+                    response.json().then(json => {
+                        dispatch({
+                            type: actions.LOAD_SPEAKER_PORTAL_FORM_SUCCESS,
+                            data: { form: json.form, FieldTypes: json.types },
+                            message: json.message
+                        });
+                    });
+                } else {
+                    response.json().then(json => {
+                        dispatch({
+                            type: actions.LOAD_SPEAKER_PORTAL_FORM_ERROR,
+                            error: json.status,
+                            message: json.message
+                        });
+                    });
+                }
+            });
+        };
+    }
 }
+

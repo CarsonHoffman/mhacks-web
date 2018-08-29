@@ -11,8 +11,10 @@ import Reader from './reader';
 import Confirm from './confirm';
 import MentorApply from './mentor/apply';
 import SpeakerApply from './speaker/apply';
+import SpeakerPortal from './speaker/portal';
 import AdminPage from './admin';
 import TeamBuilding from './team_building';
+
 
 export {
     Navigator,
@@ -28,6 +30,7 @@ export {
     Confirm,
     MentorApply,
     SpeakerApply,
+    SpeakerPortal,
     AdminPage,
     TeamBuilding
 };
