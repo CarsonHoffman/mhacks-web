@@ -3,6 +3,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
 var devConfig = {
+    watchOptions: {
+        poll: 1000
+    },
     entry: [
         'babel-polyfill',
         './app/app.jsx',
